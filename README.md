@@ -1,14 +1,14 @@
-# parameter-space
+# parameter-space-2d
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tsmbland/parameter-space/HEAD?filepath=%2Fscripts/INDEX.ipynb)
 [![CC BY 4.0][cc-by-shield]][cc-by]
-[![PyPi version](https://badgen.net/pypi/v/parameter-space/)](https://pypi.org/project/parameter-space)
+[![PyPi version](https://badgen.net/pypi/v/parameter-space-2d/)](https://pypi.org/project/parameter-space-2d)
 
 Functions for simulating cell polarity PDE models and performing parameter space analysis.
 
 ## Install instructions
 
-    pip install parameter-space
+    pip install parameter-space-2d
 
 ## Running notebooks
 
@@ -21,8 +21,8 @@ To run on your local machine, follow these steps:
 
 &#8291;1. Clone the repository:
 
-    git clone https://github.com/tsmbland/parameter-space.git
-    cd parameter-space
+    git clone https://github.com/tsmbland/parameter-space-2d.git
+    cd parameter-space-2d
 
 &#8291;2. Create conda environment:
 
@@ -30,7 +30,7 @@ To run on your local machine, follow these steps:
 
 &#8291;3. Activate conda environment:
 
-    conda activate parameter-space
+    conda activate parameter-space-2d
 
 &#8291;4. Open jupyter notebooks:
 

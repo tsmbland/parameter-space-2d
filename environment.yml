@@ -1,4 +1,4 @@
-name: parameter-space
+name: parameter-space-2d
 channels:
   - conda-forge
   - defaults
@@ -12,5 +12,5 @@ dependencies:
   - pandas
   - pip
   - pip:
-      - parameter-space==0.1.0
-      - pde-rk==0.1.0
+      - parameter-space-2d==0.1.0
+      - pde-rk==0.1.1
