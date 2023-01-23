@@ -255,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674496197164</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="renamed to avoid pypi clash">
+      <created>1674497217866</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1674497217866</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -282,6 +289,7 @@
     <MESSAGE value="got notebooks working" />
     <MESSAGE value="modified requirements" />
     <MESSAGE value="added badges" />
-    <option name="LAST_COMMIT_MESSAGE" value="added badges" />
+    <MESSAGE value="renamed to avoid pypi clash" />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed to avoid pypi clash" />
   </component>
 </project>

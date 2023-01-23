@@ -4,7 +4,7 @@
 [![CC BY 4.0][cc-by-shield]][cc-by]
 [![PyPi version](https://badgen.net/pypi/v/parameter-space-2d/)](https://pypi.org/project/parameter-space-2d)
 
-Functions for simulating cell polarity PDE models and performing parameter space analysis.
+Tools for performing 2D parameter space analysis for deterministic models
 
 ## Install instructions
 
