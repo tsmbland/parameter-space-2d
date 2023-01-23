@@ -4,6 +4,10 @@
 [![CC BY 4.0][cc-by-shield]][cc-by]
 [![PyPi version](https://badgen.net/pypi/v/parameter-space-2d/)](https://pypi.org/project/parameter-space-2d)
 
+<p align="center">
+    <img src="docs/example_maps.png" width="100%" height="100%"/>
+</p>
+
 Tools for performing 2D parameter space analysis for deterministic models
 
 ## Install instructions
