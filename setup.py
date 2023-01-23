@@ -11,6 +11,7 @@ setup(
     install_requires=['numpy',
                       'matplotlib',
                       'scipy',
-                      'pandas'],
+                      'pandas',
+                      'pde-rk'],
     description='Tools for performing model parameter space analysis'
 )
