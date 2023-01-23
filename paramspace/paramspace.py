@@ -21,7 +21,7 @@ class ParamSpace2D:
                  crange: tuple = None,
                  cmap: str = None,
                  save_fig: bool = False,
-                 args: tuple = (),
+                 args: list = [],
                  replace=False):
 
         """
@@ -33,7 +33,7 @@ class ParamSpace2D:
         - progress is saved, if interrupted can be resumed without loss by calling the run function again
 
         Args:
-            func: function - takes 2 parameters, returns an integer or float (must not be zero)
+            func: function - takes 2 parameters, returns an integer or float
             p1_range: range for parameter 1 (lower, upper)
             p2_range: range for parameter 2 (lower, upper)
             resolution0: n x n points on initial grid
