@@ -1,9 +1,8 @@
 # parameter-space
 
-[//]: # ([![Binder]&#40;https://mybinder.org/badge_logo.svg&#41;]&#40;https://mybinder.org/v2/gh/tsmbland/polarity-pde/HEAD?filepath=%2Fscripts/INDEX.ipynb&#41;)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tsmbland/parameter-space/HEAD?filepath=%2Fscripts/INDEX.ipynb)
 [![CC BY 4.0][cc-by-shield]][cc-by]
-
-[//]: # ([![PyPi version]&#40;https://badgen.net/pypi/v/polarity-pde/&#41;]&#40;https://pypi.org/project/polarity-pde&#41;)
+[![PyPi version](https://badgen.net/pypi/v/parameter-space/)](https://pypi.org/project/parameter-space)
 
 Functions for simulating cell polarity PDE models and performing parameter space analysis.
 
