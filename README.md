@@ -10,14 +10,29 @@
 
 Tools for performing 2D parameter space analysis for deterministic models
 
-## Install instructions
+## Method
+
+Parameter space maps are built up by performing an iterative grid search, preferentially exploring parameter regimes 
+close to detected boundaries. Various checks are in place to ensure that any detected boundaries are fully explored.
+
+
+<p align="center">
+    <img src="docs/method.png" width="100%" height="100%"/>
+</p>
+
+<center>
+
+_Example of a model with two states (blue and orange) and variable input parameters β and ε_
+
+</center>
+
+## Installation
 
     pip install parameter-space-2d
 
-## Running notebooks
+## Instructions
 
-The repository contains a series of notebooks with an explanation of the methods, and instructions for running
-simulations and performing analysis. 
+The repository contains a series of notebooks with instructions for performing analysis, using the Goehring et al., (2011) PAR polarity model as an example. 
 
 To run in the cloud, click 'launch binder' above.
 
