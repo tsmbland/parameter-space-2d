@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c138c6eb-a327-4734-9d6e-997e497b0ccf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/method.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,11 +278,17 @@
       <option name="project" value="LOCAL" />
       <updated>1674500441540</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="added methods">
+      <created>1674501340078</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1674501340078</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Minor changes" />
     <MESSAGE value="More computationally efficient diffusion function" />
     <MESSAGE value="Option to calculate diffusion array without padding (can be more efficient)" />
     <MESSAGE value="Fixed small boundary condition error, option to specify max step in pdeRK" />
@@ -309,6 +313,7 @@
     <MESSAGE value="renamed to avoid pypi clash" />
     <MESSAGE value="added github workflow" />
     <MESSAGE value="added example maps" />
-    <option name="LAST_COMMIT_MESSAGE" value="added example maps" />
+    <MESSAGE value="added methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="added methods" />
   </component>
 </project>

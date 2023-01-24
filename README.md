@@ -32,7 +32,7 @@ _Example of a model with two states (blue and orange) and variable input paramet
 
 ## Instructions
 
-The repository contains a series of notebooks with instructions for performing analysis, using the Goehring et al., (2011) PAR polarity model as an example. 
+The repository contains a series of notebooks with instructions for performing analysis, using the Goehring et al. (2011) PAR polarity model as an example. 
 
 To run in the cloud, click 'launch binder' above.
 
