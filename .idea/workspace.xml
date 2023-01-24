@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c138c6eb-a327-4734-9d6e-997e497b0ccf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/environment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/environment.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,11 +287,17 @@
       <option name="project" value="LOCAL" />
       <updated>1674501340078</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="added instructions to pypi">
+      <created>1674555103466</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1674555103466</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="More computationally efficient diffusion function" />
     <MESSAGE value="Option to calculate diffusion array without padding (can be more efficient)" />
     <MESSAGE value="Fixed small boundary condition error, option to specify max step in pdeRK" />
     <MESSAGE value="Minor performance improvements to pde function" />
@@ -314,6 +322,7 @@
     <MESSAGE value="added github workflow" />
     <MESSAGE value="added example maps" />
     <MESSAGE value="added methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="added methods" />
+    <MESSAGE value="added instructions to pypi" />
+    <option name="LAST_COMMIT_MESSAGE" value="added instructions to pypi" />
   </component>
 </project>

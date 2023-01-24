@@ -5,7 +5,7 @@
 [![PyPi version](https://badgen.net/pypi/v/parameter-space-2d/)](https://pypi.org/project/parameter-space-2d)
 
 <p align="center">
-    <img src="docs/example_maps.png" width="100%" height="100%"/>
+    <img src="https://raw.githubusercontent.com/tsmbland/parameter-space-2d/master/docs/example_maps.png" width="100%" height="100%"/>
 </p>
 
 Tools for performing 2D parameter space analysis for deterministic models
@@ -17,14 +17,11 @@ close to detected boundaries. Various checks are in place to ensure that any det
 
 
 <p align="center">
-    <img src="docs/method.png" width="100%" height="100%"/>
+    <img src="https://raw.githubusercontent.com/tsmbland/parameter-space-2d/master/docs/method.png" width="100%" height="100%"/>
 </p>
-
-<center>
 
 _Example of a model with two states (blue and orange) and variable input parameters β and ε_
 
-</center>
 
 ## Installation
 
