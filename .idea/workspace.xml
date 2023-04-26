@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c138c6eb-a327-4734-9d6e-997e497b0ccf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/environment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/environment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,11 +292,17 @@
       <option name="project" value="LOCAL" />
       <updated>1674555103466</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="fixed issue with images in readme on pypi">
+      <created>1674555765346</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1674555765346</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Option to calculate diffusion array without padding (can be more efficient)" />
     <MESSAGE value="Fixed small boundary condition error, option to specify max step in pdeRK" />
     <MESSAGE value="Minor performance improvements to pde function" />
     <MESSAGE value="Ability to run pdeRK with standard Euler method" />
@@ -323,6 +327,7 @@
     <MESSAGE value="added example maps" />
     <MESSAGE value="added methods" />
     <MESSAGE value="added instructions to pypi" />
-    <option name="LAST_COMMIT_MESSAGE" value="added instructions to pypi" />
+    <MESSAGE value="fixed issue with images in readme on pypi" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed issue with images in readme on pypi" />
   </component>
 </project>
