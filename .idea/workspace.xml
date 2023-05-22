@@ -306,11 +306,17 @@
       <option name="project" value="LOCAL" />
       <updated>1682519856035</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="testing workflow fix">
+      <created>1682603579994</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1682603579994</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Minor performance improvements to pde function" />
     <MESSAGE value="Ability to run pdeRK with standard Euler method" />
     <MESSAGE value="getting ready for pip" />
     <MESSAGE value="ready for pip" />
@@ -335,6 +341,7 @@
     <MESSAGE value="added instructions to pypi" />
     <MESSAGE value="fixed issue with images in readme on pypi" />
     <MESSAGE value="added github url" />
-    <option name="LAST_COMMIT_MESSAGE" value="added github url" />
+    <MESSAGE value="testing workflow fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing workflow fix" />
   </component>
 </project>

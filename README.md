@@ -29,28 +29,29 @@ _Example of a model with two states (blue and orange) and variable input paramet
 
 ## Instructions
 
-The repository contains a series of notebooks with instructions for performing analysis, using the Goehring et al. (2011) PAR polarity model as an example. 
+The repository contains a series of notebooks with instructions for performing analysis, using the Goehring et al. (2011) PAR polarity model as an example.
+To run the notebook interactively you have two options:
 
-To run in the cloud, click 'launch binder' above.
+#### Option 1: Cloud
 
-To run on your local machine, follow these steps:
+To run in the cloud, click the 'launch binder' button at the top. Please note that it may take several minutes to open the notebook
 
-&#8291;1. Clone the repository:
+#### Option 2: Local
 
-    git clone https://github.com/tsmbland/parameter-space-2d.git
-    cd parameter-space-2d
+Step 1: Open [Docker](https://www.docker.com/products/docker-desktop/) and pull the docker image (copy and paste into the terminal)
 
-&#8291;2. Create conda environment:
+    docker pull tsmbland/parameter-space
 
-    conda env create -f environment.yml
+Step 2: Run the docker container (copy and paste into the terminal)
 
-&#8291;3. Activate conda environment:
+    docker run -p 8888:8888 tsmbland/parameter-space
 
-    conda activate parameter-space-2d
+This will print a URL for you to copy and paste into your web browser to open up Jupyter
 
-&#8291;4. Open jupyter notebooks:
-
-    jupyter notebook scripts/INDEX.ipynb
+Step 3: When finished, delete the container and image
+    
+    docker container prune -f
+    docker image rm tsmbland/parameter-space
 
 
 ## License
