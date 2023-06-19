@@ -41,18 +41,18 @@ To run in the cloud using Binder, click here: [![Binder](https://mybinder.org/ba
 
 Step 1: Open [Docker](https://www.docker.com/products/docker-desktop/) and pull the docker image (copy and paste into the terminal)
 
-    docker pull tsmbland/parameter-space
+    docker pull tsmbland/parameter-space-2d
 
 Step 2: Run the docker container (copy and paste into the terminal)
 
-    docker run -p 8888:8888 tsmbland/parameter-space
+    docker run -p 8888:8888 tsmbland/parameter-space-2d
 
 This will print a URL for you to copy and paste into your web browser to open up Jupyter
 
 Step 3: When finished, delete the container and image
     
     docker container prune -f
-    docker image rm tsmbland/parameter-space
+    docker image rm tsmbland/parameter-space-2d
 
 #### Option 3: Conda
 
