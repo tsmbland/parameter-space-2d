@@ -29,7 +29,7 @@ _Example of a model with two states (blue and orange) and variable input paramet
 
 ## Instructions
 
-The repository contains a couple of [notebooks](scripts/INDEX.ipynb) with instructions for performing analysis, using the Goehring et al. (2011) PAR polarity model as an example. To run the notebooks interactively you have a few options:
+The repository contains a couple of [notebooks](https://nbviewer.org/github/tsmbland/parameter-space-2d/blob/master/scripts/INDEX.ipynb) with instructions for performing analysis, using the Goehring et al. (2011) PAR polarity model as an example. To run the notebooks interactively you have a few options:
 
 #### Option 1: Binder
 
