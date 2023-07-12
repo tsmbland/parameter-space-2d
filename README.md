@@ -1,6 +1,5 @@
 # parameter-space-2d
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tsmbland/parameter-space/HEAD?filepath=%2Fscripts/INDEX.ipynb)
 [![CC BY 4.0][cc-by-shield]][cc-by]
 [![PyPi version](https://badgen.net/pypi/v/parameter-space-2d/)](https://pypi.org/project/parameter-space-2d)
 
@@ -29,38 +28,11 @@ _Example of a model with two states (blue and orange) and variable input paramet
 
 ## Instructions
 
-The repository contains a couple of [notebooks](https://nbviewer.org/github/tsmbland/parameter-space-2d/blob/master/scripts/INDEX.ipynb) with instructions for performing analysis, using the Goehring et al. (2011) PAR polarity model as an example. To run the notebooks interactively you have a few options:
+The repository contains a couple of notebooks with instructions for performing analysis, using the Goehring et al. (2011) PAR polarity model as an example. To run the notebooks interactively, click here:
 
-#### Option 1: Binder
+<a target="_blank" href="https://colab.research.google.com/github/tsmbland/parameter-space-2d/blob/master/scripts/INDEX.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" height=20/></a>
 
-To run in the cloud using Binder, click here: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tsmbland/parameter-space/HEAD?filepath=%2Fscripts/INDEX.ipynb)
-
-(Please note that it may take several minutes to open the notebook)
-
-#### Option 2: Docker
-
-Step 1: Open [Docker](https://www.docker.com/products/docker-desktop/) and pull the docker image (copy and paste into the terminal)
-
-    docker pull tsmbland/parameter-space-2d
-
-Step 2: Run the docker container (copy and paste into the terminal)
-
-    docker run -p 8888:8888 tsmbland/parameter-space-2d
-
-This will print a URL for you to copy and paste into your web browser to open up Jupyter
-
-Step 3: When finished, delete the container and image
-    
-    docker container prune -f
-    docker image rm tsmbland/parameter-space-2d
-
-#### Option 3: Conda
-
-You can use the environment.yml file to set up a [Conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) environment on your machine from which the notebook can be run
-
-    conda env create -f environment.yml
-    conda activate parameter-space-2d
-    jupyter notebook
 
 
 ## License
