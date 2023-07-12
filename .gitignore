@@ -5,3 +5,5 @@ scripts/temp2/
 scripts/temp3/
 dist/
 parameter_space_2d.egg-info/
+__pycache__
+.DS_Store

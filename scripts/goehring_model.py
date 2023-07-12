@@ -1,5 +1,5 @@
 import numpy as np
-from polaritypde.pde import pdeRK
+from pde_rk import pde_rk
 from scipy.integrate import odeint
 
 
@@ -97,7 +97,7 @@ class ParPDE:
             killfunc = None
 
         # Run
-        soln, time, solns, times = pdeRK(dxdt=self.dxdt, X0=[self.A, self.P], Tmax=self.Tmax, deltat=self.deltat,
+        soln, time, solns, times = pde_rk(dxdt=self.dxdt, X0=[self.A, self.P], Tmax=self.Tmax, deltat=self.deltat,
                                          t_eval=np.arange(0, self.Tmax + 0.0001, save_gap), killfunc=killfunc,
                                          stabilitycheck=kill_stab)
         self.A = soln[0]
