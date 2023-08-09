@@ -6,12 +6,30 @@ from scipy.integrate import odeint
 def diffusion(concs, dx):
     concs_ = np.r_[concs[0], concs, concs[-1]]  # Dirichlet boundary conditions
     d = concs_[:-2] - 2 * concs_[1:-1] + concs_[2:]
-    return d / (dx ** 2)
+    return d / (dx**2)
 
 
 class ParPDE:
-    def __init__(self, Da=0.28, Dp=0.15, konA=0.00858, koffA=0.0054, konP=0.0474, koffP=0.0073, kPA=2, kAP=0.19,
-                 alpha=1, beta=2, xsteps=100, psi=0.174, Tmax=1000, deltat=0.01, L=134.6, pA=1.56, pP=1):
+    def __init__(
+        self,
+        Da=0.28,
+        Dp=0.15,
+        konA=0.00858,
+        koffA=0.0054,
+        konP=0.0474,
+        koffP=0.0073,
+        kPA=2,
+        kAP=0.19,
+        alpha=1,
+        beta=2,
+        xsteps=100,
+        psi=0.174,
+        Tmax=1000,
+        deltat=0.01,
+        L=134.6,
+        pA=1.56,
+        pP=1,
+    ):
         # Species
         self.A = np.zeros([int(xsteps)])
         self.P = np.zeros([int(xsteps)])
@@ -50,10 +68,18 @@ class ParPDE:
         P = X[1]
         ac = self.pA - self.psi * np.mean(A)
         pc = self.pP - self.psi * np.mean(P)
-        dA = ((self.konA * ac) - (self.koffA * A) - (self.kAP * (P ** self.alpha) * A) + (
-                self.Da * diffusion(A, self.deltax)))
-        dP = ((self.konP * pc) - (self.koffP * P) - (self.kPA * (A ** self.beta) * P) + (
-                self.Dp * diffusion(P, self.deltax)))
+        dA = (
+            (self.konA * ac)
+            - (self.koffA * A)
+            - (self.kAP * (P**self.alpha) * A)
+            + (self.Da * diffusion(A, self.deltax))
+        )
+        dP = (
+            (self.konP * pc)
+            - (self.koffP * P)
+            - (self.kPA * (A**self.beta) * P)
+            + (self.Dp * diffusion(P, self.deltax))
+        )
         return [dA, dP]
 
     def initiate(self):
@@ -63,9 +89,19 @@ class ParPDE:
         """
 
         # Solve ode, no antagonism
-        o = ParODE(konA=self.konA, koffA=self.koffA, konP=self.konP, koffP=self.koffP, alpha=self.alpha,
-                   beta=self.beta,
-                   psi=self.psi, pA=self.pA, pP=self.pP, kAP=0, kPA=0)
+        o = ParODE(
+            konA=self.konA,
+            koffA=self.koffA,
+            konP=self.konP,
+            koffP=self.koffP,
+            alpha=self.alpha,
+            beta=self.beta,
+            psi=self.psi,
+            pA=self.pA,
+            pP=self.pP,
+            kAP=0,
+            kPA=0,
+        )
         soln = odeint(o.dxdt, (0, 0), t=np.linspace(0, 10000, 100000))[-1]
 
         self.A = soln[0]
@@ -89,17 +125,25 @@ class ParPDE:
 
         # Kill when uniform
         if kill_uni:
+
             def killfunc(X):
                 if sum(X[0] > X[1]) == len(X[0]) or sum(X[0] > X[1]) == 0:
                     return True
                 return False
+
         else:
             killfunc = None
 
         # Run
-        soln, time, solns, times = pde_rk(dxdt=self.dxdt, X0=[self.A, self.P], Tmax=self.Tmax, deltat=self.deltat,
-                                         t_eval=np.arange(0, self.Tmax + 0.0001, save_gap), killfunc=killfunc,
-                                         stabilitycheck=kill_stab)
+        soln, time, solns, times = pde_rk(
+            dxdt=self.dxdt,
+            X0=[self.A, self.P],
+            Tmax=self.Tmax,
+            deltat=self.deltat,
+            t_eval=np.arange(0, self.Tmax + 0.0001, save_gap),
+            killfunc=killfunc,
+            stabilitycheck=kill_stab,
+        )
         self.A = soln[0]
         self.P = soln[1]
 
@@ -107,8 +151,20 @@ class ParPDE:
 
 
 class ParODE:
-    def __init__(self, konA=0.00858, koffA=0.0054, konP=0.0474, koffP=0.0073, kPA=2, kAP=0.19,
-                 alpha=1, beta=2, psi=0.174, pA=1.56, pP=1):
+    def __init__(
+        self,
+        konA=0.00858,
+        koffA=0.0054,
+        konP=0.0474,
+        koffP=0.0073,
+        kPA=2,
+        kAP=0.19,
+        alpha=1,
+        beta=2,
+        psi=0.174,
+        pA=1.56,
+        pP=1,
+    ):
         self.konA = konA
         self.koffA = koffA
         self.konP = konP
@@ -126,8 +182,8 @@ class ParODE:
         P = X[1]
         Acyt = self.pA - self.psi * A
         Pcyt = self.pP - self.psi * P
-        dA = (self.konA * Acyt) - (self.koffA * A) - (self.kAP * (P ** self.alpha) * A)
-        dP = (self.konP * Pcyt) - (self.koffP * P) - (self.kPA * (A ** self.beta) * P)
+        dA = (self.konA * Acyt) - (self.koffA * A) - (self.kAP * (P**self.alpha) * A)
+        dP = (self.konP * Pcyt) - (self.koffP * P) - (self.kPA * (A**self.beta) * P)
         return [dA, dP]
 
     def numerical_jacobian(self, X, step=0.0001):
@@ -135,8 +191,24 @@ class ParODE:
         P = X[1]
         Acyt = self.pA - self.psi * A
         Pcyt = self.pP - self.psi * P
-        dPdA = (self.konP * Pcyt) - (self.koffP * P) - (self.kPA * ((A + step) ** self.beta) * P)
-        dAdP = (self.konA * Acyt) - (self.koffA * A) - (self.kAP * ((P + step) ** self.alpha) * A)
-        dAdA = (self.konA * Acyt) - (self.koffA * (A + step)) - (self.kAP * (P ** self.alpha) * (A + step))
-        dPdP = (self.konP * Pcyt) - (self.koffP * (P + step)) - (self.kPA * (A ** self.beta) * (P + step))
+        dPdA = (
+            (self.konP * Pcyt)
+            - (self.koffP * P)
+            - (self.kPA * ((A + step) ** self.beta) * P)
+        )
+        dAdP = (
+            (self.konA * Acyt)
+            - (self.koffA * A)
+            - (self.kAP * ((P + step) ** self.alpha) * A)
+        )
+        dAdA = (
+            (self.konA * Acyt)
+            - (self.koffA * (A + step))
+            - (self.kAP * (P**self.alpha) * (A + step))
+        )
+        dPdP = (
+            (self.konP * Pcyt)
+            - (self.koffP * (P + step))
+            - (self.kPA * (A**self.beta) * (P + step))
+        )
         return np.r_[np.c_[dAdA, dAdP], np.c_[dPdA, dPdP]] / step

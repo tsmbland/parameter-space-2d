@@ -1,9 +1,20 @@
-.idea/
-.ipynb_checkpoints
-scripts/temp/
-scripts/temp2/
-scripts/temp3/
+# Bytecode
+__pycache__/
+
+# Distribution/packaging
+build/
 dist/
-parameter_space_2d.egg-info/
-__pycache__
+*.egg-info/
+
+# Unit tests
+.coverage
+.pytest_cache/
+
+# OS
 .DS_Store
+
+# IPython notebooks
+.ipynb_checkpoints
+
+# Temporary files
+scripts/temp*/

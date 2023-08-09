@@ -1,28 +1,31 @@
-import numpy as np
-import os
 import multiprocessing
-import matplotlib.pyplot as plt
+import os
 import shutil
 from typing import Callable
 
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 class ParamSpace2D:
-    def __init__(self,
-                 func: Callable,
-                 p1_range: tuple,
-                 p2_range: tuple,
-                 resolution0: int,
-                 path: str,
-                 resolution_step: int = 2,
-                 n_iterations: int = 1,
-                 explore_boundaries: bool = True,
-                 parallel: bool = False,
-                 cores: int = None,
-                 crange: tuple = None,
-                 cmap: str = None,
-                 save_fig: bool = False,
-                 args: list = [],
-                 replace=False):
+    def __init__(
+        self,
+        func: Callable,
+        p1_range: tuple,
+        p2_range: tuple,
+        resolution0: int,
+        path: str,
+        resolution_step: int = 2,
+        n_iterations: int = 1,
+        explore_boundaries: bool = True,
+        parallel: bool = False,
+        cores: int = None,
+        crange: tuple = None,
+        cmap: str = None,
+        save_fig: bool = False,
+        args: list = [],
+        replace=False,
+    ):
 
         """
 
@@ -90,11 +93,11 @@ class ParamSpace2D:
         """
 
         # Run function
-        state = self.func(*[float(i) for i in p1val_p2val.split(',')] + self.args)
+        state = self.func(*[float(i) for i in p1val_p2val.split(",")] + self.args)
 
         # Save state
-        with open(self.path + '/' + str(self.iteration) + '.csv', 'a') as f:
-            f.write(p1val_p2val + ',' + str(state) + '\n')
+        with open(self.path + "/" + str(self.iteration) + ".csv", "a") as f:
+            f.write(p1val_p2val + "," + str(state) + "\n")
 
     def batch_eval(self, pcombs):
         """
@@ -115,12 +118,16 @@ class ParamSpace2D:
 
         """
 
-        with open(self.path + '/' + str(self.iteration) + '.csv') as g:
+        with open(self.path + "/" + str(self.iteration) + ".csv") as g:
             for line in g:
-                p1, p2, val = line[:-1].split(',')
-                xind = ((float(p1) - self.p1_range[0]) * (self.n_sims - 1)) / (self.p1_range[1] - self.p1_range[0])
-                yind = ((float(p2) - self.p2_range[0]) * (self.n_sims - 1)) / (self.p2_range[1] - self.p2_range[0])
-                if '.' in val:
+                p1, p2, val = line[:-1].split(",")
+                xind = ((float(p1) - self.p1_range[0]) * (self.n_sims - 1)) / (
+                    self.p1_range[1] - self.p1_range[0]
+                )
+                yind = ((float(p2) - self.p2_range[0]) * (self.n_sims - 1)) / (
+                    self.p2_range[1] - self.p2_range[0]
+                )
+                if "." in val:
                     self.res[round(xind), round(yind)] = float(val)
                 else:
                     self.res[round(xind), round(yind)] = int(val)
@@ -162,32 +169,43 @@ class ParamSpace2D:
                     ypoints = np.r_[a[1], b[1], c[1]]
                     run_bool = np.zeros([self.n_sims, self.n_sims])
                     for x, y in zip(xpoints, ypoints):
-                        run_bool[x * self.resolution_step:x * self.resolution_step + (self.resolution_step + 1),
-                        y * self.resolution_step:y * self.resolution_step + (self.resolution_step + 1)] = 1
+                        run_bool[
+                            x * self.resolution_step : x * self.resolution_step
+                            + (self.resolution_step + 1),
+                            y * self.resolution_step : y * self.resolution_step
+                            + (self.resolution_step + 1),
+                        ] = 1
 
                 else:
                     run_bool = np.ones([self.n_sims, self.n_sims])
 
             # Parameter combinations
             sims_array_ind = np.nonzero(run_bool)
-            p1vals = self.p1_range[0] + sims_array_ind[0] * (self.p1_range[1] - self.p1_range[0]) / (self.n_sims - 1)
-            p2vals = self.p2_range[0] + sims_array_ind[1] * (self.p2_range[1] - self.p2_range[0]) / (self.n_sims - 1)
-            pcombs = ["{:.12f}".format(p1vals[i]) + ',' + "{:.12f}".format(p2vals[i]) for i in range(len(p1vals))]
+            p1vals = self.p1_range[0] + sims_array_ind[0] * (
+                self.p1_range[1] - self.p1_range[0]
+            ) / (self.n_sims - 1)
+            p2vals = self.p2_range[0] + sims_array_ind[1] * (
+                self.p2_range[1] - self.p2_range[0]
+            ) / (self.n_sims - 1)
+            pcombs = [
+                "{:.12f}".format(p1vals[i]) + "," + "{:.12f}".format(p2vals[i])
+                for i in range(len(p1vals))
+            ]
 
             # Remove parameters already tested (if algorithm run before)
-            if os.path.isfile(self.path + '/' + str(self.iteration) + '.csv'):
-                with open(self.path + '/' + str(self.iteration) + '.csv') as f:
+            if os.path.isfile(self.path + "/" + str(self.iteration) + ".csv"):
+                with open(self.path + "/" + str(self.iteration) + ".csv") as f:
                     for line in f:
-                        p = line.split(',')[0] + ',' + line.split(',')[1]
+                        p = line.split(",")[0] + "," + line.split(",")[1]
                         if p in pcombs:
                             pcombs.remove(p)
 
             # Carry over combinations from previous iteration
             if self.iteration != 0:
-                with open(self.path + '/' + str(self.iteration - 1) + '.csv') as f:
-                    with open(self.path + '/' + str(self.iteration) + '.csv', 'a') as g:
+                with open(self.path + "/" + str(self.iteration - 1) + ".csv") as f:
+                    with open(self.path + "/" + str(self.iteration) + ".csv", "a") as g:
                         for line in f:
-                            p = line.split(',')[0] + ',' + line.split(',')[1]
+                            p = line.split(",")[0] + "," + line.split(",")[1]
                             if p in pcombs:
                                 pcombs.remove(p)
                                 g.write(line)
@@ -211,8 +229,17 @@ class ParamSpace2D:
                     res_padded = np.nan * np.zeros([self.n_sims + 2, self.n_sims + 2])
                     res_padded[1:-1, 1:-1] = self.res
                     x = np.dstack(
-                        (res_padded[:-2, :-2], res_padded[:-2, 1:-1], res_padded[:-2, 2:], res_padded[1:-1, :-2],
-                         res_padded[1:-1, 2:], res_padded[2:, :-2], res_padded[2:, 1:-1], res_padded[2:, 2:]))
+                        (
+                            res_padded[:-2, :-2],
+                            res_padded[:-2, 1:-1],
+                            res_padded[:-2, 2:],
+                            res_padded[1:-1, :-2],
+                            res_padded[1:-1, 2:],
+                            res_padded[2:, :-2],
+                            res_padded[2:, 1:-1],
+                            res_padded[2:, 2:],
+                        )
+                    )
 
                     mx = np.nanmax(x, axis=2)
                     mn = np.nanmin(x, axis=2)
@@ -222,12 +249,18 @@ class ParamSpace2D:
 
                     # Parameter combinations (if any)
                     if j != 0:
-                        p1vals = self.p1_range[0] + sims_array_ind[0] * (self.p1_range[1] - self.p1_range[0]) / (
-                                self.n_sims - 1)
-                        p2vals = self.p2_range[0] + sims_array_ind[1] * (self.p2_range[1] - self.p2_range[0]) / (
-                                self.n_sims - 1)
-                        pcombs = ["{:.12f}".format(p1vals[i]) + ',' + "{:.12f}".format(p2vals[i]) for i in
-                                  range(len(p1vals))]
+                        p1vals = self.p1_range[0] + sims_array_ind[0] * (
+                            self.p1_range[1] - self.p1_range[0]
+                        ) / (self.n_sims - 1)
+                        p2vals = self.p2_range[0] + sims_array_ind[1] * (
+                            self.p2_range[1] - self.p2_range[0]
+                        ) / (self.n_sims - 1)
+                        pcombs = [
+                            "{:.12f}".format(p1vals[i])
+                            + ","
+                            + "{:.12f}".format(p2vals[i])
+                            for i in range(len(p1vals))
+                        ]
 
                         # Run
                         self.batch_eval(pcombs)
@@ -240,8 +273,8 @@ class ParamSpace2D:
 
             # If no boundary (i.e. uniform parameter space), reload output from first iteration
             if np.sum(~np.isnan(self.res)) == 0:
-                with open(self.path + '/0.csv') as f:
-                    self.res[:, :] = int(f.readline().split(',')[2])
+                with open(self.path + "/0.csv") as f:
+                    self.res[:, :] = int(f.readline().split(",")[2])
 
             # Else: Interpolate nans by flood fill algorithm
             else:
@@ -255,19 +288,21 @@ class ParamSpace2D:
         # Save figure
         if self.save_fig:
             fig, ax = self.figure()
-            fig.savefig(self.path + '/fig.png', dpi=300)
+            fig.savefig(self.path + "/fig.png", dpi=300)
             fig.close()
 
         # Specify int/float format
         f = (self.res % 1) == 0
 
         # Save row by row
-        with open(self.path + '/Res.txt', 'w') as fh:
+        with open(self.path + "/Res.txt", "w") as fh:
             for i, row in enumerate(self.res):
                 formats = f[i]
-                line = ' '.join(
-                    "{:.0f}".format(value) if formats[j] else "{:.12f}".format(value) for j, value in enumerate(row))
-                fh.write(line + '\n')
+                line = " ".join(
+                    "{:.0f}".format(value) if formats[j] else "{:.12f}".format(value)
+                    for j, value in enumerate(row)
+                )
+                fh.write(line + "\n")
 
     def figure(self):
         """
@@ -279,8 +314,20 @@ class ParamSpace2D:
         fig, ax = plt.subplots()
 
         # Colours
-        ax.imshow(self.res.T, origin='lower', aspect='auto', vmin=self.crange[0], vmax=self.crange[1],
-                  cmap=self.cmap, extent=(self.p1_range[0], self.p1_range[1], self.p2_range[0], self.p2_range[1]))
+        ax.imshow(
+            self.res.T,
+            origin="lower",
+            aspect="auto",
+            vmin=self.crange[0],
+            vmax=self.crange[1],
+            cmap=self.cmap,
+            extent=(
+                self.p1_range[0],
+                self.p1_range[1],
+                self.p2_range[0],
+                self.p2_range[1],
+            ),
+        )
 
         # Figure adjustments
         ax.set_xlim(self.p1_range[0], self.p1_range[1])
@@ -291,12 +338,14 @@ class ParamSpace2D:
 
 
 class ParamSpace1D:
-    def __init__(self,
-                 func: Callable,
-                 p_vals: np.ndarray,
-                 path: str,
-                 parallel: bool = False,
-                 cores: int = None):
+    def __init__(
+        self,
+        func: Callable,
+        p_vals: np.ndarray,
+        path: str,
+        parallel: bool = False,
+        cores: int = None,
+    ):
         """
 
         Runs func with all combinations of p_vals, saves results to csv file
@@ -327,8 +376,8 @@ class ParamSpace1D:
         res = self.func(p_val)
 
         # Save results
-        with open(self.path + '/Res.csv', 'a') as f:
-            f.write("{:.12f}".format(p_val) + ',' + str(res) + '\n')
+        with open(self.path + "/Res.csv", "a") as f:
+            f.write("{:.12f}".format(p_val) + "," + str(res) + "\n")
 
     def run(self):
 
